@@ -1,0 +1,77 @@
+sudo apt-get install unzip
+
+——- Instalação do Apache ———-
+
+sudo apt-get install apache2
+
+———- Instalação do PHP 7.0 ———
+
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install -y php7.0
+
+———- Módulo do PHP ———
+
+sudo apt-cache search php7-* 
+sudo apt-get install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.1-mcrypt
+
+———- Requisitos do Laravel ———
+
+sudo apt-get install openssl ssl-cert
+sudo apt-get install php7.1-mbstring
+
+——- Instalação do Mysql ———-
+
+sudo apt-get install mysql-server
+
+——- Instalação do Composer ———-
+
+curl -sS https://getcomposer.org/installer | php
+
+——- Criação do projeto ———-
+
+composer create-project --prefer-dist laravel/laravel blog
+
+——- configuração do projeto ———-
+
+sudo chgrp -R www-data /var/www/html/blog
+sudo chmod -R 775 /var/www/html/blog/storage
+
+——- configuração do Apache ———-
+
+cd /etc/apache2/sites-available
+sudo nano laravel.conf
+
+<VirtualHost *:80>
+    ServerName localhost
+
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/blog/public
+
+    <Directory /var/www/html/blog>
+        AllowOverride All
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+sudo a2dissite 000-default.conf
+sudo a2ensite laravel.conf
+sudo a2enmod rewrite
+sudo service apache2 restart
+
+——- Caso ocorra algum problema ———-
+
+Error in exception handler
+
+php artisan cache:clear 
+chmod -R 777 app/storage 
+composer dump-autoload
+
+
+
+
+
+
