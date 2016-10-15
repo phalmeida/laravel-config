@@ -27,7 +27,7 @@ sudo apt-get install mysql-server
 
 ——- Instalação do Composer ———-
 
-curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 ——- Criação do projeto ———-
 
