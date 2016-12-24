@@ -1,0 +1,19 @@
+
+Vamos baixar e instalar as libs/bibliotecas necessárias, 
+utilize as permissões de superusuário com o SUDO, 
+serão necessários libstdc++6, libaio1, ia32-libs. 
+Utilize o apt-get para cada pacote de libs:
+
+sudo apt-get install libstdc++6
+sudo apt-get install libaio1
+sudo apt-get install ia32-libs
+
+Baixe o binário do DB2 Express-C:
+Será criado um diretório expc, execute o ./db2_install deste diretório com o SUDO:
+
+./db2_install -b /opt/ibm/db2/V10.1
+
+./db2_install
+
+
+/home/vagrant/sqllib
