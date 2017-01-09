@@ -9,6 +9,8 @@ sudo apt-get install libaio1
 sudo apt-get install ia32-libs
 
 Baixe o binário do DB2 Express-C:
+ v11.1_linuxx64_expc.tar.gz
+ tar xvzf v11.1_linuxx64_expc.tar.gz
 Será criado um diretório expc, execute o ./db2_install deste diretório com o SUDO:
 
 ./db2_install -b /opt/ibm/db2/V10.1
